@@ -1,36 +1,4 @@
-{
-    "local": {
-      "provider": "local",
-      "module": "passport-local",
-      "usernameField": "username",
-      "passwordField": "password",
-      "authPath": "/auth/local",
-      "successRedirect": "/auth/account",
-      "failureRedirect": "/local",
-      "failureFlash": true
-    },
-    "ldap": {
-      "provider": "ldap",
-      "authScheme":"ldap",
-      "module": "passport-ldapauth",
-      "authPath": "/auth/ldap",
-      "successRedirect": "/auth/account",
-      "failureRedirect": "/ldap",
-      "session": true,
-      "failureFlash": true,
-      "profileAttributesFromLDAP": {
-        "login": "uid",
-        "username": "uid",
-        "displayName": "displayName",
-        "email": "mail",
-        "externalId": "uid"
-      },
-      "server":{
-        "url": "ldap://ldap-server:1234",
-        "searchBase": "dc=domain,dc=fr",
-        "searchFilter": "(cn={{username}})"
-      }
-    },
+  {
     "google-login": {
       "provider": "google",
       "module": "passport-google-oauth",
