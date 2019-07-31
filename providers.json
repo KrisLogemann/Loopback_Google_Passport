@@ -1,0 +1,64 @@
+{
+    "local": {
+      "provider": "local",
+      "module": "passport-local",
+      "usernameField": "username",
+      "passwordField": "password",
+      "authPath": "/auth/local",
+      "successRedirect": "/auth/account",
+      "failureRedirect": "/local",
+      "failureFlash": true
+    },
+    "ldap": {
+      "provider": "ldap",
+      "authScheme":"ldap",
+      "module": "passport-ldapauth",
+      "authPath": "/auth/ldap",
+      "successRedirect": "/auth/account",
+      "failureRedirect": "/ldap",
+      "session": true,
+      "failureFlash": true,
+      "profileAttributesFromLDAP": {
+        "login": "uid",
+        "username": "uid",
+        "displayName": "displayName",
+        "email": "mail",
+        "externalId": "uid"
+      },
+      "server":{
+        "url": "ldap://ldap-server:1234",
+        "searchBase": "dc=domain,dc=fr",
+        "searchFilter": "(cn={{username}})"
+      }
+    },
+    "google-login": {
+      "provider": "google",
+      "module": "passport-google-oauth",
+      "strategy": "OAuth2Strategy",
+      "clientID": "{Put Your own google ClientID Here}",
+      "clientSecret": "{Put Your own google Secret Here}",
+      "callbackURL": "/auth/google/callback",
+      "authPath": "/auth/google",
+      "callbackPath": "/auth/google/callback",
+      "successRedirect": "/auth/account",
+      "failureRedirect": "/login",
+      "scope": ["email", "profile"],
+      "failureFlash": true
+    },
+    "google-link": {
+      "provider": "google",
+      "module": "passport-google-oauth",
+      "strategy": "OAuth2Strategy",
+      "clientID": "{Put Your own google ClientID Here}",
+      "clientSecret": "{Put Your own google ClientSecret Here}",
+      "callbackURL": "/link/google/callback",
+      "authPath": "/link/google",
+      "callbackPath": "/link/google/callback",
+      "successRedirect": "/auth/account",
+      "failureRedirect": "/login",
+      "scope": ["email", "profile"],
+      "link": true,
+      "failureFlash": true
+    }
+  }
+  
